@@ -9,10 +9,10 @@ Hello this is the notes for Ava's First Website.
 </head>
 <body>
 
-<h1>Welcome to Ava's First Website</h1>
+<h1>Welcome to Ava's First Website!</h1>
 
-<p style="color:crimson;">Have a wonderful stay. &#128151;</p>
-<button type="youtubeButton"> Click here </button>
+<p style="color:crimson;">Hello. click on the possum &#128151;</p>
+<button class="white" id="whiteButton"> Click here </button>
 
 <img src="https://image.shutterstock.com/image-photo/young-possum-on-branch-260nw-797829325.jpg">
 <div class="divone">
@@ -23,6 +23,30 @@ Hello this is the notes for Ava's First Website.
 </div>
 <div class="divthree">
   <p>This is more text</p>
+
+<div class="simonGame">
+  <p>Here's the simon game.</p>
+        <div class="redTile" id="red"></div>
+        <div class="greenTile" data-tile="green"></div>
+        <div class="blueTile" data-tile="blue"></div>
+        <div class="yellowTile" data-tile="yellow"></div>
+
+        <button class="startButton">Start</button>
 </div>
 </body>
+<script>
+  //document.getElementById("whiteButton").addEventListener("click", function (){
+    //console.log("button was clicked");
+//  });
+
+  var whiteButtonPageElement = document.getElementById("whiteButton");
+
+  document.getElementById("whiteButton").addEventListener("click", function (){
+  whiteButtonPageElement.classList.add("mystyle");
+  whiteButtonPageElement.classList.remove("white");
+});
+
+//simon game
+
+</script>
 </html>
