@@ -1,37 +1,36 @@
 
 <!DOCTYPE html>
 <html>
-Hello this is the notes for Ava's First Website.
 <head>
   <link rel="stylesheet" href="styles.css">
 <meta charset="UTF-8">
 <title>Ava's First Website</title>
 </head>
 <body>
-
-<h1>Welcome to Ava's First Website!</h1>
-
-<p style="color:crimson;">Hello. click on the possum &#128151;</p>
-<button class="white" id="whiteButton"> Click here </button>
-
-<img src="https://image.shutterstock.com/image-photo/young-possum-on-branch-260nw-797829325.jpg">
-<div class="divone">
-  <p>Hiiii this is div 1</p>
+<div>
+  <h1 class="title">welcome to ava's first website</h1>
+  <p class="intro">ʕ•́ᴥ•̀ʔっ♡ My name is Ava, and this is my first website.</p>
+  <p class="abtMe">Here are a few things I enjoy:</p>
 </div>
-<div class="divtwo">
-  <p>This is a paragraph of text.</p>
-</div>
-<div class="divthree">
-  <p>This is more text</p>
 
+<div class="favorites">
+  <p> ☞ Black Sugar Hojicha from Boba Guys </p>
+  <button class="imgButton" id="imgButton"><img src="https://img.cdn4dd.com/p/fit=cover,width=1200,height=1200,format=jpeg,quality=50/media/photos/eee3440a-e039-4cb0-b2c7-363ac3690563-retina-large-jpeg" class="boba"></button>
+  <p> ☞ Snow </p>
+  <button class="imgButton" id="imgButton"> <img src="https://i.pinimg.com/564x/2a/b6/d6/2ab6d6d26733a4ec7689453a37a9065b.jpg" class="snowcat"></button>
+  <p> ☞ Twice </p>
+  <button class="imgButton" id="imgButton"> <img src="https://pm1.narvii.com/6853/2eb8e30db57e5cc480fad32a2b42f516ab2f8a5bv2_hq.jpg" class="twicepic"></button>
+</div>
+<p></p>
 <div class="simonGame">
-  <p>Here's the simon game.</p>
+  <p>Simon Game</p>
         <div class="redTile" id="red"></div>
-        <div class="greenTile" data-tile="green"></div>
-        <div class="blueTile" data-tile="blue"></div>
-        <div class="yellowTile" data-tile="yellow"></div>
+        <div class="greenTile" id="green"></div>
+        <div class="blueTile" id="blue"></div>
+        <div class="yellowTile" id="yellow"></div>
 
-        <button class="startButton">Start</button>
+        <div class="textBox" id = "textBox"></div>
+        <button class="startButton" id = "startButton">Start</button>
 </div>
 </body>
 <script>
@@ -41,12 +40,55 @@ Hello this is the notes for Ava's First Website.
 
   var whiteButtonPageElement = document.getElementById("whiteButton");
 
-  document.getElementById("whiteButton").addEventListener("click", function (){
+  document.getElementById("imgButton").addEventListener("hover", function (){
   whiteButtonPageElement.classList.add("mystyle");
   whiteButtonPageElement.classList.remove("white");
 });
 
 //simon game
+var sequence = [];
+var gamerSequence = [];
+var level = 0;
+
+function newRound(){
+  level++;
+  console.log("level:"+level);
+  sequence.push(Math.floor(Math.random()*1));
+  console.log("sequence:"+sequence);
+  displaySequence();
+}
+
+function displaySequence(){
+  console.log("displaying sequence");
+  for (let i = 0; i < sequence.length; i++)
+  {
+    if (sequence[i] = "0")
+    {
+      console.log("found red tile");
+      redButton.classList.add("redTileOn");
+      redButton.classList.remove("redTile");
+      setTimeout(() => {redButton.classList.add("redTile")}, 2000);
+      setTimeout(() => {redButton.classList.remove("redTileOn")}, 2000);
+    }
+    else if (sequence[i] = "1")
+    {
+      console.log("found green tile");
+      redButton.classList.add("greenTileOn");
+      redButton.classList.remove("greenTile");
+      setTimeout(() => {redButton.classList.add("greenTile")}, 2000);
+      setTimeout(() => {redButton.classList.remove("greenTileOn")}, 2000);
+    }
+  }
+}
+
+function startGame(){
+  textBox.textContent = "My turn...";
+
+  newRound();
+
+}
+
+  document.getElementById("startButton").addEventListener("click", startGame);
 
 </script>
 </html>

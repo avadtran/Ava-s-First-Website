@@ -1,68 +1,97 @@
 
-  .divone {
-  border-radius: 25px;
-  background: #73AD21;
-  padding: 20px;
+  .title{
+    position: sticky;
+    top: 0;
+    text-align: center;
+    font-family: "Luminari", fantasy;
+    font-size: 40px;
+  }
+
+  .intro{
+    margin-left: 30px;
+    color: #ad768d;
+    font-size: 20px;
+    font-family: "Didot", serif;
+  }
+
+  .abtMe{
+    margin-left: 50px;
+    color: #ad768d;
+    font-size: 20px;
+    font-family: "Didot", serif;
+  }
+
+.imgButton{
   width: 200px;
-  height: 150px;
-  color: blue;
-  }
-  .divtwo {
-    width: 400px;
-    height: 100px;
-      border-radius: 10;
-    background-color: orange;
-    color:brown;
-    font-family:fantasy;
-  }
-  .divthree{
-    width: 200px;
-    height: 50px;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/0/07/Didelphis_virginiana_with_young.JPG");
-    color: white;
-  }
-  .white{
+  height: auto;
+  background-color: transparent;
+  border: 0px;
+}
 
-      width: 200px;
-      height: 100px;
-        border-radius: 10;
-        border-width: medium;
-      background-color: white;
-      color:black;
+  img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
   }
-  .mystyle{
 
-      width: 200px;
-      height: 100px;
-        border-radius: 10;
-        border-width: medium;
-      background-color: red;
-      color:black;
+  img:hover{
+    opacity: 0.5;
+    transition-duration: 0.2s;
   }
+
+  .boba:hover{
+
+  }
+
+  .favorites{
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    color: #42191b;
+    font-size: 17px;
+    font-family: "Didot", serif;
+    background-image: linear-gradient(to right, #7ca9cf, #c5d3e0, orange);
+    border-radius: 50px;
+  }
+
   .simonGame{
-  position: relative;
-  width: 800px;
-  height: 500px;
-  border: 3px;
-  background-color: pink;
-  color: black;
+    padding: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    color: #224a23;
+    font-size: 30px;
+    font-weight: 700;
+    background-color: #c7e5ed;
+    font-family: "Luminari", fantasy;
+    border-radius: 50px;
     }
 
   .redTile{
-    position: relative;
-    right: -5px;
-    width: 200px;
-    height: 200px;
-    background-color: red;
+    width: 150px;
+    height: 150px;
+    background-color: #f0a1ac;
+    border-radius: 20px;
+    box-shadow: 10px 10px #719aa8;
   }
-
+  .redTileOn{
+    background-color: white;
+    transition-duration: 0.2s;
+  }
   .greenTile{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: green;
+    border-radius: 20px;
+    box-shadow: 10px 10px #719aa8;
+  }
+  .greenTileOn{
       position: relative;
       right: -210px;
       top: -200px;
     width: 200px;
     height: 200px;
-    background-color: green;
+    background-color: #85ffa3;
   }
   .blueTile{
     position: relative;
@@ -72,6 +101,14 @@
     height: 200px;
     background-color: blue;
   }
+  .blueTileOn{
+    position: relative;
+    right: -5px;
+    bottom: 195px;
+    width: 200px;
+    height: 200px;
+    background-color: #b3cfff;
+  }
   .yellowTile{
       position: relative;
       right: -210px;
@@ -80,10 +117,24 @@
     height: 200px;
     background-color: yellow;
   }
+  .yellowTileOn{
+      position: relative;
+      right: -210px;
+      bottom: 395px;
+    width: 200px;
+    height: 200px;
+    background-color: #fffcb3;
+  }
   .startButton{
         position: relative;
         bottom: 380px;
         right: -190px;
+  }
+  .textBox{
+        position: relative;
+        bottom: 380px;
+        right: -190px;
+    color: black;
   }
 
   }
