@@ -1,4 +1,6 @@
 
+
+
   .title{
     position: sticky;
     top: 0;
@@ -39,10 +41,6 @@
     transition-duration: 0.2s;
   }
 
-  .boba:hover{
-
-  }
-
   .favorites{
     padding: 20px;
     margin-left: 100px;
@@ -56,6 +54,7 @@
 
   .simonGame{
     padding: 40px;
+    height: 700px;
     margin-left: 100px;
     margin-right: 100px;
     color: #224a23;
@@ -66,75 +65,52 @@
     border-radius: 50px;
     }
 
-  .redTile{
+  .tile {
+  	width: 150px;
+  	height: 150px;
+    float: left;
+  	margin: 5px;
+  	border-radius: 5px;
+  	transition: 0.3s;
+  }
+
+  .tile:hover{
+    opacity: 0.5;
+  }
+
+  .on {
+    opacity: 0.3;
     width: 150px;
-    height: 150px;
-    background-color: #f0a1ac;
-    border-radius: 20px;
-    box-shadow: 10px 10px #719aa8;
+  	height: 150px;
+    float: left;
+  	margin: 5px;
+  	border-radius: 5px;
+  	transition: 0.3s;
   }
-  .redTileOn{
-    background-color: white;
-    transition-duration: 0.2s;
-  }
-  .greenTile{
-    position: relative;
-    width: 150px;
-    height: 150px;
-    background-color: green;
-    border-radius: 20px;
-    box-shadow: 10px 10px #719aa8;
-  }
-  .greenTileOn{
-      position: relative;
-      right: -210px;
-      top: -200px;
-    width: 200px;
-    height: 200px;
-    background-color: #85ffa3;
-  }
-  .blueTile{
-    position: relative;
-    right: -5px;
-    bottom: 195px;
-    width: 200px;
-    height: 200px;
-    background-color: blue;
-  }
-  .blueTileOn{
-    position: relative;
-    right: -5px;
-    bottom: 195px;
-    width: 200px;
-    height: 200px;
-    background-color: #b3cfff;
-  }
-  .yellowTile{
-      position: relative;
-      right: -210px;
-      bottom: 395px;
-    width: 200px;
-    height: 200px;
-    background-color: yellow;
-  }
-  .yellowTileOn{
-      position: relative;
-      right: -210px;
-      bottom: 395px;
-    width: 200px;
-    height: 200px;
-    background-color: #fffcb3;
-  }
+
+  .red { background: red;}
+  .blue {background: blue;}
+  .yellow {background: yellow;}
+  .green {background: green;}
+
   .startButton{
-        position: relative;
-        bottom: 380px;
-        right: -190px;
+    background-color: white;
+    border: 0px;
+    border-radius: 10px;
+    margin: 20px;
+    width: 80px;
+    height: 50px;
+    font-size: 20px;
   }
   .textBox{
-        position: relative;
-        bottom: 380px;
-        right: -190px;
-    color: black;
+    margin-right: 20px;
+    font-size: 20px;
   }
+
+  .startButton:hover{
+    opacity: 0.5;
+    transition: 0.2s;
+  }
+
 
   }
