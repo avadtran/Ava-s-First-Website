@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "NewFolder",
+    "public": "NewFolderNew",
     "ignore": [
       "firebase.json",
       "**/.*",
