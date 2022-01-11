@@ -39,19 +39,34 @@ var green = document.getElementById("green");//1
 var blue = document.getElementById("blue");//2
 var yellow = document.getElementById("yellow");//3
 
+document.getElementById("highScore").innerHTML = "high score: "+window.localStorage.myHighScore;
+
+startButton.addEventListener("click", function() {
+        startRound();
+      });
+
+function startRound() {
+    sequence.push(Math.floor(Math.random() * 4));
+    for (let i = 0; i < sequence.length; i++)
+    {
+      console.log("sequence at"+i+": "+sequence[i]);
+      setTimeout(function() {
+        lightUp(sequence[i]);
+      },(i+1)*1000);
+    }
+  }
+
 function moveLevel() {
   console.log("next level");
   console.log(userSequence.length == sequence.length);
     if (userSequence.length == sequence.length) {
       level++;
-      //sequence = userSequence;
-      //userSequence = [];
+      sequence = userSequence;
+      userSequence = [];
       counter = 0;
       startRound();
     }
   }
-
-document.getElementById("highScore").innerHTML = "high score: "+window.localStorage.myHighScore;
 
 function checkUser() {
   console.log("checking user input");
@@ -72,21 +87,6 @@ console.log("counter:"+counter);
       textBox.innerHTML = "Game ended at highest level "+level;
     }
   }
-
-
-
-
-  function startRound() {
-      sequence.push(Math.floor(Math.random() * 4));
-      for (let i = 0; i < sequence.length; i++)
-      {
-        console.log("sequence at"+i+": "+sequence[i]);
-        setTimeout(function() {
-          lightUp(sequence[i]);
-        },(i+1)*1000);
-      }
-    }
-
 
   function lightUp(num)
   {
@@ -172,9 +172,7 @@ yellow.addEventListener("click", function() {
 },500);
       });
 
-startButton.addEventListener("click", function() {
-        startRound();
-      });
+
 
 
 </script>
