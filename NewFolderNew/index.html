@@ -39,6 +39,10 @@ var green = document.getElementById("green");//1
 var blue = document.getElementById("blue");//2
 var yellow = document.getElementById("yellow");//3
 
+if (!(window.localStorage.myHighScore>0))
+{
+  window.localStorage.myHighScore = 0;
+}
 document.getElementById("highScore").innerHTML = "high score: "+window.localStorage.myHighScore;
 
 startButton.addEventListener("click", function() {
