@@ -88,10 +88,10 @@
   	transition: 0.3s;
   }
 
-  .red { background: red;}
-  .blue {background: blue;}
-  .yellow {background: yellow;}
-  .green {background: green;}
+  .redButton { background: red;}
+  .blueButton {background: blue;}
+  .yellowButton {background: yellow;}
+  .greenButton {background: green;}
 
   .startButton{
     background-color: white;
@@ -102,7 +102,7 @@
     height: 50px;
     font-size: 20px;
   }
-  .textBox{
+  .endScoreBox{
     margin-right: 20px;
     font-size: 20px;
   }
