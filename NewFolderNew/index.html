@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@josephinetsai 
+josephinetsai
+/
+Ava-s-First-Website
+Public
+forked from avadtran/Ava-s-First-Website
+Code
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Ava-s-First-Website/NewFolderNew/index.html
+@josephinetsai
+josephinetsai ocean art on canvas
+Latest commit dbc0ae3 2 hours ago
+ History
+ 2 contributors
+@josephinetsai@avadtran
+195 lines (164 sloc)  5.61 KB
+   
 
 <!DOCTYPE html>
 <html>
@@ -5,6 +35,7 @@
   <link rel="stylesheet" href="styles.css">
 <meta charset="UTF-8">
 <title>Ava's First Website</title>
+ <script src="canvas.js"></script>
 </head>
 <body>
 <div>
@@ -12,172 +43,196 @@
 
 <div class="simonGame">
   <p>Simon Game</p>
-        <div class="tile red" id="red"></div>
-        <div class="tile green" id="green"></div>
-        <div class="tile blue" id="blue"></div>
-        <div class="tile yellow" id="yellow"></div>
+        <div class="tile redButton" id="redButton"></div>
+        <div class="tile greenButton" id="greenButton"></div>
+        <div class="tile blueButton" id="blueButton"></div>
+        <div class="tile yellowButton" id="yellowButton"></div>
 
-        <div class="textBox" id = "textBox"></div>
+        <div class="endScoreBox" id = "endScoreBox"></div>
         <div class="highScore" id = "highScore"></div>
         <button class="startButton" id = "startButton">Start</button>
+
 </div>
 </body>
+
+  <center>
+    <h1 class = "art">Art.</h1>
+  <canvas class = canvas id="canvas" width="1000" height="1070"></canvas>
+</center>
 <script>
 //This is the script for the Simon Game
 //vars for Game
-var sequence = [];
-var userSequence = [];
-var level = 0;
-var on = true;
-var counter = 0;
+// avaWeb.addingListeners.createListeners();
 
-//Vars and Commands for tiles
-var textBox = document.getElementById("textBox");
-var startButton = document.getElementById("startButton");
-var red = document.getElementById("red");//0
-var green = document.getElementById("green");//1
-var blue = document.getElementById("blue");//2
-var yellow = document.getElementById("yellow");//3
 
-if (!(window.localStorage.myHighScore>0))
+let avaWeb =
 {
-  window.localStorage.myHighScore = 0;
-}
-document.getElementById("highScore").innerHTML = "high score: "+window.localStorage.myHighScore;
 
-startButton.addEventListener("click", function() {
-        startRound();
-      });
+    sequence: [],
+    userSequence: [],
+    level: 0,
+    on: true,
+    counter: 0,
 
-function startRound() {
-    sequence.push(Math.floor(Math.random() * 4));
-    for (let i = 0; i < sequence.length; i++)
-    {
-      console.log("sequence at"+i+": "+sequence[i]);
-      setTimeout(function() {
-        lightUp(sequence[i]);
-      },(i+1)*1000);
-    }
-  }
+        endScoreBox : document.getElementById("endScoreBox"),
+        startButton : document.getElementById("startButton"),
+        redButton : document.getElementById("redButton"),
+        greenButton : document.getElementById("greenButton"),
+        blueButton : document.getElementById("blueButton"),
+        yellowButton : document.getElementById("yellowButton"),
 
-function moveLevel() {
-  console.log("next level");
-  console.log(userSequence.length == sequence.length);
-    if (userSequence.length == sequence.length) {
-      level++;
-      sequence = userSequence;
-      userSequence = [];
-      counter = 0;
-      startRound();
-    }
-  }
-
-function checkUser() {
-  console.log("checking user input");
-  console.log("prev use seq:"+userSequence[userSequence.length-1]);
-  console.log("corresponding sequence:"+sequence[counter]);
-  console.log(userSequence[userSequence.length-1] == sequence[counter]);
-    if (userSequence[userSequence.length-1] == sequence[counter]) {
-console.log("counter:"+counter);
-      counter++;
-      console.log("add to counter, counter now"+counter);
-      moveLevel();
-
-    } else {
-      if (level > window.localStorage.myHighScore)
+      showHighscore: function()
       {
-        window.localStorage.myHighScore = level;
-      }
-      textBox.innerHTML = "Game ended at highest level "+level;
-    }
-  }
+          document.getElementById("highScore").innerHTML = "high score: " + window.localStorage.myHighScore;
+      },
 
-  function lightUp(num)
-  {
-    console.log("num: "+num);
+      createListeners: function() {
+          this.redButton.addEventListener("click", function() {
+            avaWeb.userSequence.push(0);
+            avaWeb.lightUpButton(0);
+            setTimeout(function() {
+              avaWeb.checkUserSequenceSequence();
+            }, 500);
+          });
+
+
+          this.greenButton.addEventListener("click", function() {
+            avaWeb.userSequence.push(1);
+            avaWeb.lightUpButton(1);
+            setTimeout(function() {
+              avaWeb.checkUserSequence();
+            }, 500);
+          });
+
+          this.blueButton.addEventListener("click", function() {
+            avaWeb.userSequence.push(2);
+            avaWeb.lightUpButton(2);
+            setTimeout(function() {
+              avaWeb.checkUserSequence();
+            }, 500);
+          });
+
+
+          this.yellowButton.addEventListener("click", function() {
+            avaWeb.userSequence.push(3);
+            avaWeb.lightUpButton(3);
+            setTimeout(function() {
+              avaWeb.checkUserSequence();
+            }, 500);
+          });
+
+          this.startButton.addEventListener("click", function() {
+            console.log("hello");
+            avaWeb.startRound();
+          });
+
+        },
+    lightUpButton: function(num) {
         if (num == 0)
         {
-          red.classList.add("on");
-          red.classList.remove("tile");
-          setTimeout(function() {
-            red.classList.add("tile");
-            red.classList.remove("on");
+          this.redButton.classList.add("on");
+          this.redButton.classList.remove("tile");
+          setTimeout(function()
+          {
+            avaWeb.redButton.classList.add("tile");
+            avaWeb.redButton.classList.remove("on");
           }, 700);
           return
         }
         else if (num == 1)
         {
-          green.classList.add("on");
-          green.classList.remove("tile");
+
+          avaWeb.greenButton.classList.add("on");
+          avaWeb.greenButton.classList.remove("tile");
           setTimeout(function() {
-            green.classList.add("tile");
-            green.classList.remove("on");
+            avaWeb.greenButton.classList.add("tile");
+            avaWeb.greenButton.classList.remove("on");
+          }, 700);
+          return
+        } else if (num == 2) {
+          this.blueButton.classList.add("on");
+          this.blueButton.classList.remove("tile");
+          setTimeout(function() {
+            avaWeb.blueButton.classList.add("tile");
+            avaWeb.blueButton.classList.remove("on");
+          }, 700);
+          return
+        } else {
+          this.yellowButton.classList.add("on");
+          this.yellowButton.classList.remove("tile");
+          setTimeout(function() {
+            avaWeb.yellowButton.classList.add("tile");
+            avaWeb.yellowButton.classList.remove("on");
           }, 700);
           return
         }
-        else if (num == 2)
+      },
+
+
+          checkUserSequence: function() {
+            if (this.userSequence[this.userSequence.length - 1] == this.sequence[this.counter]) {
+              this.counter++;
+              this.moveUpLevel();
+              if (this.level > window.localStorage.myHighScore)
+              {
+                window.localStorage.myHighScore = this.level;
+                document.getElementById("highScore").innerHTML = "high score: " + window.localStorage.myHighScore;
+
+              }
+            } else
+            {
+              if(window.localStorage.myHighScore == null)
+              {
+                window.localStorage.myHighScore = 1;
+              }
+
+              endScoreBox.innerHTML = "Game ended at highest level " + this.level;
+              setTimeout(() => {window.location.reload()},700);
+            }
+          },
+
+        startRound: function()
         {
-          blue.classList.add("on");
-          blue.classList.remove("tile");
-          setTimeout(function() {
-            blue.classList.add("tile");
-            blue.classList.remove("on");
-          }, 700);
-          return
-        }
-        else {
-          yellow.classList.add("on");
-          yellow.classList.remove("tile");
-          setTimeout(function() {
-            yellow.classList.add("tile");
-            yellow.classList.remove("on");
-          }, 700);
-          return
-        }
-  }
+            this.sequence.push(Math.floor(Math.random() * 4));
+            for (let i = 0; i < this.sequence.length; i++) {
+              setTimeout(function() {
+                avaWeb.lightUpButton(avaWeb.sequence[i]);
+              }, (i + 1) * 1000);
+            }
 
-red.addEventListener("click", function() {
-  console.log("red pushed");
-        userSequence.push(0);
-        lightUp(0);
-        console.log("red lit");
-        setTimeout(function() {
-        checkUser();
-      }, 500);
-      });
+            console.log(window.localStorage.myHighScore);
+            console.log(this.level);
+          },
 
-green.addEventListener("click", function() {
-  console.log("green pushed");
-  userSequence.push(1);
-  lightUp(1);
-  console.log("green lit");
-  setTimeout(function() {
-  checkUser();
-},500);
-      });
+      moveUpLevel: function() {
 
-blue.addEventListener("click", function() {
-  console.log("blue pushed");
-  userSequence.push(2);
-  lightUp(2);
-  console.log("green lit");
-  setTimeout(function() {
-  checkUser();
-},500);
-      });
-
-yellow.addEventListener("click", function() {
-  console.log("yellow pushed");
-  userSequence.push(3);
-  lightUp(3);
-  console.log("ywlo lit");
-  setTimeout(function() {
-  checkUser();
-},500);
-      });
+       if (this.userSequence.length == this.sequence.length) {
+         this.level++;
+         this.counter = 0;
+         this.sequence = this.userSequence;
+         this.userSequence = [];
+         this.startRound();
+       }
+     },
 
 
 
+}
+avaWeb.createListeners();
+avaWeb.showHighscore();
 
 </script>
 </html>
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
