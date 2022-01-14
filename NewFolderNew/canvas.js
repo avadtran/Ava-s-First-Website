@@ -11,6 +11,8 @@ function drawArt(ctx) {
 
   ctx.beginPath();
   ctx.moveTo(-500, 0);
+  var time = new Date();
+  ctx.rotate(time.getSeconds() + time.getMilliseconds() / 1000);
   ctx.strokeStyle = 'rgba(174, 198, 207, 1)';
   ctx.lineWidth = 11;
   ctx.lineTo(-300, 0);
