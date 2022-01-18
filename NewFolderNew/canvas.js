@@ -6,7 +6,7 @@ function drawArt(ctx) {
   // Draw triangle
   ctx.save();
   var time = new Date();
-  ctx.translate(3*time.getSeconds(),1*time.getSeconds()*(-1)** 3*time.getSeconds()*(-1));
+   ctx.translate(0,2*time.getSeconds());
   ctx.beginPath();
   ctx.arc(0, -340, 130, 0, Math.PI * 2, false);
   ctx.fill();
@@ -17,7 +17,7 @@ function drawArt(ctx) {
   ctx.save();
   ctx.beginPath();
   ctx.moveTo(-500, 0);
-  var time = new Date();
+
   ctx.rotate(time.getSeconds() + time.getMilliseconds() / 1000);
   ctx.strokeStyle = 'rgba(174,198,207, 1)';
   ctx.lineWidth = 11;
