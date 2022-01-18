@@ -4,22 +4,30 @@ function initializeAnimation() {
 
 function drawArt(ctx) {
   // Draw triangle
+  ctx.save();
+  var time = new Date();
+  ctx.translate(3*time.getSeconds(),1*time.getSeconds()*(-1)** 3*time.getSeconds()*(-1));
   ctx.beginPath();
   ctx.arc(0, -340, 130, 0, Math.PI * 2, false);
   ctx.fill();
   ctx.stroke();
+  ctx.restore();
 
+
+  ctx.save();
   ctx.beginPath();
   ctx.moveTo(-500, 0);
   var time = new Date();
   ctx.rotate(time.getSeconds() + time.getMilliseconds() / 1000);
-  ctx.strokeStyle = 'rgba(174, 198, 207, 1)';
+  ctx.strokeStyle = 'rgba(174,198,207, 1)';
   ctx.lineWidth = 11;
   ctx.lineTo(-300, 0);
   ctx.lineTo(0,100);
   ctx.lineTo(230,70);
   ctx.lineTo(500,117);
   ctx.stroke();
+  ctx.restore();
+
 
   ctx.beginPath();
   ctx.moveTo(-510, 300);
@@ -63,6 +71,7 @@ function draw() {
   ctx.save();
   ctx.translate(500, 535);
   drawArt(ctx);
+
   ctx.restore();
 
 
